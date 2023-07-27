@@ -16,7 +16,7 @@
   "bandwidth_ord": 4,
   "dip_factor_max": 2,
   "min_number_faults": 1,
-  "max_number_faults": 1,
+  "max_number_faults": 6,
   "pad_samples": 10,
   "max_column_height": [150.0, 150.0],
   "closure_types": ["simple", "faulted", "onlap"],
