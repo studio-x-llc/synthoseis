@@ -26,7 +26,6 @@ def build_model(user_json: str, run_id, test_mode: int = None, rpm_factors=None)
         build_unfaulted_depth_maps(p)
     facies = create_facies_array(p, depth_maps, onlap_list, fan_list)
 
-
     # Build un-faulted geological models
     geo_models = Geomodel(p, depth_maps, onlap_list, facies)
     geo_models.build_unfaulted_geomodels()
