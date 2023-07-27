@@ -19,7 +19,7 @@
   "max_number_faults": 1,
   "pad_samples": 10,
   "max_column_height": [150.0, 150.0],
-  "closure_types": ["simple"],
+  "closure_types": ["simple", "faulted", "onlap"],
   "min_closure_voxels_simple": 500,
   "min_closure_voxels_faulted": 2500,
   "min_closure_voxels_onlap": 500,

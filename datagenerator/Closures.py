@@ -863,7 +863,7 @@ class Closures(Horizons, Geomodel, Parameters):
         self.top_lith_indices = np.array(top_lith_indices)
         self.top_lith_facies = self.facies[top_lith_indices]
 
-        return top_lith_indices
+        # return top_lith_indices
 
     def create_closures(self):
         if self.cfg.verbose:
