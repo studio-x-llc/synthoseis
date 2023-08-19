@@ -69,7 +69,7 @@ class Parameters(_Borg):
         Method that writes to the logfile
     """
 
-    def __init__(self, user_config: str = CONFIG_PATH, test_mode=None, runid=None):
+    def __init__(self, user_config: str = CONFIG_PATH, test_mode=None, runid=None, project_folder=None):
         """
         Initialize the Parameters object.
 
@@ -88,6 +88,7 @@ class Parameters(_Borg):
         self._shared_state = {}
         super().__init__()
         self.model_dir_name: str = "seismic"
+        self.project_folder = project_folder
         self.parameter_file = user_config
         self.test_mode = test_mode
         self.runid = runid
@@ -635,7 +636,7 @@ class Parameters(_Borg):
         """
         d = self._read_json()
         self.project = d["project"]
-        self.project_folder = d["project_folder"]
+        # self.project_folder = d["project_folder"]
         wfolder = d["work_folder"]
         if not os.path.exists(wfolder):
             wfolder = "/tmp"  # In case work_folder does not exist, use /tmp

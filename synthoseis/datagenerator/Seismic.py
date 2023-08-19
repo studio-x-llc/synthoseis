@@ -4,11 +4,11 @@ from multiprocessing import Pool
 import numpy as np
 
 from tqdm import trange
-from datagenerator.histogram_equalizer import normalize_seismic
-from datagenerator.Geomodels import Geomodel
-from datagenerator.util import write_data_to_hdf
-from datagenerator.wavelets import generate_wavelet, plot_wavelets
-from rockphysics.RockPropertyModels import select_rpm, RockProperties, EndMemberMixing
+from synthoseis.datagenerator.histogram_equalizer import normalize_seismic
+from synthoseis.datagenerator.Geomodels import Geomodel
+from synthoseis.datagenerator.util import write_data_to_hdf
+from synthoseis.datagenerator.wavelets import generate_wavelet, plot_wavelets
+from synthoseis.rockphysics.RockPropertyModels import select_rpm, RockProperties, EndMemberMixing
 
 
 class SeismicVolume(Geomodel):
@@ -27,7 +27,7 @@ class SeismicVolume(Geomodel):
 
         Parameters
         ----------
-        parameters : datagenerator.Parameters
+        parameters : synthoseis.datagenerator.Parameters
             The parameters object of the project.
         faults : np.ndarray
             The faults array.
@@ -407,8 +407,8 @@ class SeismicVolume(Geomodel):
         """
 
         from math import sin, cos
-        from datagenerator.util import mute_above_seafloor
-        from datagenerator.util import infill_surface
+        from synthoseis.datagenerator.util import mute_above_seafloor
+        from synthoseis.datagenerator.util import infill_surface
 
         # Calculate standard deviation ratio to use based on user-input sn_db parameter
         if self.cfg.verbose:
@@ -549,7 +549,7 @@ class SeismicVolume(Geomodel):
         return np.mean(cube_list, axis=0)
 
     def augment_data_and_labels(self, normalised_seismic, seabed):
-        from datagenerator.Augmentation import tz_stretch, uniform_stretch
+        from synthoseis.datagenerator.Augmentation import tz_stretch, uniform_stretch
 
         hc_labels = self.cfg.h5file.root.ModelData.hc_labels[:]
         data, labels = tz_stretch(
@@ -575,7 +575,7 @@ class SeismicVolume(Geomodel):
 
         input_indices = np.arange(nsamples)
         if self.cfg.qc_plots:
-            from datagenerator.util import import_matplotlib
+            from synthoseis.datagenerator.util import import_matplotlib
 
             plt = import_matplotlib()
             plt.close(1)
@@ -1081,7 +1081,7 @@ class SeismicVolume(Geomodel):
 
         if self.cfg.qc_plots:
             print("\nCreating RPM qc plots")
-            from rockphysics.RockPropertyModels import rpm_qc_plots
+            from synthoseis.rockphysics.RockPropertyModels import rpm_qc_plots
 
             rpm_qc_plots(self.cfg, rpm)
 

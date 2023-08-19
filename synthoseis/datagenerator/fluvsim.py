@@ -16,7 +16,7 @@
 import os
 import numpy as np
 from datetime import datetime
-from datagenerator.util import import_matplotlib
+from synthoseis.datagenerator.util import import_matplotlib
 
 plt = import_matplotlib()
 

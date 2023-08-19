@@ -1,6 +1,6 @@
 from math import cos, sin
 import numpy as np
-from datagenerator.util import is_it_in_hull
+from synthoseis.datagenerator.util import is_it_in_hull
 
 
 class SaltModel:
@@ -20,7 +20,7 @@ class SaltModel:
 
         Parameters
         ----------
-        parameters : datagenerator.Parameters
+        parameters : synthoseis.datagenerator.Parameters
             The parameters of the project.
         
         Returns

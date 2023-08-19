@@ -2,7 +2,7 @@
 import numpy as np
 from scipy.fftpack import fft, fftfreq, ifft
 from scipy.interpolate import UnivariateSpline
-from datagenerator.util import import_matplotlib
+from synthoseis.datagenerator.util import import_matplotlib
 
 
 def fs_arr(fs):

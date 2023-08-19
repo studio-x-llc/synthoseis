@@ -5,19 +5,19 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 
-from datagenerator.Closures import Closures
-from datagenerator.Faults import Faults
-from datagenerator.Geomodels import Geomodel
-from datagenerator.Horizons import build_unfaulted_depth_maps, create_facies_array
-from datagenerator.Parameters import Parameters
-from datagenerator.Seismic import SeismicVolume
-from datagenerator.util import plot_3D_closure_plot
+from .datagenerator.Closures import Closures
+from .datagenerator.Faults import Faults
+from .datagenerator.Geomodels import Geomodel
+from .datagenerator.Horizons import build_unfaulted_depth_maps, create_facies_array
+from .datagenerator.Parameters import Parameters
+from .datagenerator.Seismic import SeismicVolume
+from .datagenerator.util import plot_3D_closure_plot
 
 
-def build_model(user_json: str, run_id, test_mode: int = None, rpm_factors=None):
+def build_model(user_json: str, run_id, test_mode: int = None, rpm_factors=None, project_folder=None):
     """Build model from config file."""
     # Set up model parameters
-    p = Parameters(user_json, runid=run_id, test_mode=test_mode)
+    p = Parameters(user_json, runid=run_id, test_mode=test_mode, project_folder=project_folder)
     p.setup_model(rpm_factors=rpm_factors)
 
     p.hdf_setup(os.path.join(p.temp_folder, "model_data.hdf"))

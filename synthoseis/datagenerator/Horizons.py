@@ -3,7 +3,7 @@ import math
 import numpy as np
 from scipy import stats
 from scipy.interpolate import griddata
-from datagenerator.Parameters import Parameters
+from synthoseis.datagenerator.Parameters import Parameters
 from itertools import groupby
 
 class Horizons:
@@ -181,7 +181,7 @@ class Horizons:
         # - make plot if not quiet
         if verbose:
             import os
-            from datagenerator.util import import_matplotlib
+            from synthoseis.datagenerator.util import import_matplotlib
 
             plt = import_matplotlib()
             print(f"strike angle = {strike_angle}")
@@ -306,7 +306,7 @@ class Horizons:
 
         if self.cfg.hdf_store:
             # Write onlap maps to hdf
-            from datagenerator.util import write_data_to_hdf
+            from synthoseis.datagenerator.util import write_data_to_hdf
 
             write_data_to_hdf(
                 "depth_maps_onlaps", onlaps * self.cfg.digi, self.cfg.hdf_master
@@ -906,7 +906,7 @@ class BasinFloorFans(Horizons):
 
         # Plot the fan
         if self.cfg.qc_plots:
-            from datagenerator.util import import_matplotlib
+            from synthoseis.datagenerator.util import import_matplotlib
 
             plt = import_matplotlib()
             plt.figure(1)
@@ -1035,7 +1035,7 @@ class BasinFloorFans(Horizons):
         _z = _z[point_indices]
 
         if self.cfg.qc_plots:
-            from datagenerator.util import import_matplotlib
+            from synthoseis.datagenerator.util import import_matplotlib
 
             plt = import_matplotlib()
             plt.clf()
@@ -1175,7 +1175,7 @@ class BasinFloorFans(Horizons):
         Display an inline and crossline with the basin floor fan in red in cross-section
         Inlay a map of the fan in each subplot
         """
-        from datagenerator.util import import_matplotlib
+        from synthoseis.datagenerator.util import import_matplotlib
 
         plt = import_matplotlib()
         plt.close()
@@ -1511,7 +1511,7 @@ def create_facies_array(
 
         Parameters
         ----------
-        parameters : datagenerator.Parameters
+        parameters : synthoseis.datagenerator.Parameters
             Parameter object storing all model parameters.
         depth_maps : np.ndarray
             A numpy array containing the depth maps.

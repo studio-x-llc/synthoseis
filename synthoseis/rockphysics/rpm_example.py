@@ -1,5 +1,5 @@
 import numpy as np
-from rockphysics.RockPropertyModels import RockProperties, store_1d_trend_dict_to_hdf
+from synthoseis.rockphysics.RockPropertyModels import RockProperties, store_1d_trend_dict_to_hdf
 from bruges.rockphysics import moduli
 
 

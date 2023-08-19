@@ -143,14 +143,14 @@ def decimate_array_to_1d(cfg, in_array, xy_factor=10, z_factor=1):
 
 def select_rpm(cfg):
     if cfg.project == "example1":
-        from rockphysics.rpm_example import RPMExample
+        from synthoseis.rockphysics.rpm_example import RPMExample
 
         rpm = RPMExample(cfg)
     return rpm
 
 
 def rpm_qc_plots(cfg, rpm):
-    from datagenerator.util import import_matplotlib
+    from synthoseis.datagenerator.util import import_matplotlib
 
     plt = import_matplotlib()
 

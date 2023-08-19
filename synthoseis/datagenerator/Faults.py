@@ -2,10 +2,10 @@ import os
 import numpy as np
 from tqdm import tqdm
 from scipy.ndimage import maximum_filter, binary_dilation
-from datagenerator.Horizons import Horizons
-from datagenerator.Geomodels import Geomodel
-from datagenerator.Parameters import Parameters
-from datagenerator.util import write_data_to_hdf, plot_3D_faults_plot
+from synthoseis.datagenerator.Horizons import Horizons
+from synthoseis.datagenerator.Geomodels import Geomodel
+from synthoseis.datagenerator.Parameters import Parameters
+from synthoseis.datagenerator.util import write_data_to_hdf, plot_3D_faults_plot
 from skimage import measure
 
 
@@ -17,7 +17,7 @@ class Faults(Horizons, Geomodel):
 
     Parameters
     ----------
-    Horizons : datagenerator.Horizons
+    Horizons : synthoseis.datagenerator.Horizons
         The Horizons class used to build the faults.
     Geomodel : data_generator.Geomodels
         The Geomodel class used to build the faults.
@@ -159,7 +159,7 @@ class Faults(Horizons, Geomodel):
         )
 
         if self.cfg.include_salt:
-            from datagenerator.Salt import SaltModel
+            from synthoseis.datagenerator.Salt import SaltModel
 
             self.salt_model = SaltModel(self.cfg)
             self.salt_model.compute_salt_body_segmentation()
@@ -519,7 +519,7 @@ class Faults(Horizons, Geomodel):
             ] = 0.0
 
         if self.cfg.qc_plots:
-            from datagenerator.util import plot_xsection
+            from synthoseis.datagenerator.util import plot_xsection
             import matplotlib as mpl
 
             line_number = int(
@@ -613,7 +613,7 @@ class Faults(Horizons, Geomodel):
         -------
         None
         """
-        from datagenerator.util import (
+        from synthoseis.datagenerator.util import (
             find_line_with_most_voxels,
             plot_voxels_not_in_regular_layers,
             plot_xsection,
@@ -1320,7 +1320,7 @@ class Faults(Horizons, Geomodel):
                     )
 
                 # TODO: remove this block after qc/tests complete
-                from datagenerator.util import import_matplotlib
+                from synthoseis.datagenerator.util import import_matplotlib
                 plt = import_matplotlib()
 
                 plt.close(35)
@@ -1513,7 +1513,7 @@ class Faults(Horizons, Geomodel):
             _description_
         """
         import os
-        from datagenerator.util import import_matplotlib
+        from synthoseis.datagenerator.util import import_matplotlib
 
         plt = import_matplotlib()
 
@@ -2480,7 +2480,7 @@ class Faults(Horizons, Geomodel):
         """
         import os
         from math import degrees
-        from datagenerator.util import import_matplotlib
+        from synthoseis.datagenerator.util import import_matplotlib
 
         plt = import_matplotlib()
         # Import axes3d, required to create plot with projection='3d' below. DO NOT REMOVE!

@@ -1,9 +1,9 @@
 import os
 
 import numpy as np
-from datagenerator.Horizons import Horizons
-from datagenerator.Geomodels import Geomodel
-from datagenerator.Parameters import Parameters
+from synthoseis.datagenerator.Horizons import Horizons
+from synthoseis.datagenerator.Geomodels import Geomodel
+from synthoseis.datagenerator.Parameters import Parameters
 from skimage import morphology, measure
 from scipy.ndimage import minimum_filter, maximum_filter
 
@@ -1297,8 +1297,8 @@ class Closures(Horizons, Geomodel, Parameters):
         )
 
         if self.cfg.qc_plots:
-            from datagenerator.util import plot_xsection
-            from datagenerator.util import find_line_with_most_voxels
+            from synthoseis.datagenerator.util import plot_xsection
+            from synthoseis.datagenerator.util import find_line_with_most_voxels
 
             # visualize closures QC
             inline_index_cl = find_line_with_most_voxels(
@@ -3139,7 +3139,7 @@ def flood_fill_heap(test_array, empty_value=1.0e22, quiet=True):
             np.percentile(validPoints, 99),
             np.percentile(validPoints, 100),
         )
-        from datagenerator.util import import_matplotlib
+        from synthoseis.datagenerator.util import import_matplotlib
 
         plt = import_matplotlib()
         plt.figure(5)

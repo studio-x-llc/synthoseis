@@ -13,3 +13,6 @@ tags
 wip*
 *.code-workspace
 .DS_Store
+
+# Poetry
+/dist

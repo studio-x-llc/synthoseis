@@ -1,7 +1,7 @@
 import os
 import numpy as np
-from datagenerator.Parameters import Parameters
-from datagenerator.util import next_odd
+from synthoseis.datagenerator.Parameters import Parameters
+from synthoseis.datagenerator.util import next_odd
 from scipy.ndimage import maximum_filter
 
 
@@ -41,7 +41,7 @@ class Geomodel:
 
         Parameters
         ----------
-        parameters : datagenerator.Parameters
+        parameters : synthoseis.datagenerator.Parameters
             Parameter object storing all model parameters.
         depth_maps : np.ndarray
             A numpy array containing the depth maps.
@@ -214,8 +214,8 @@ class Geomodel:
                 "    ... finished create_geologic_age_3D_from_infilled_horizons ...\n"
             )
 
-            from datagenerator.util import plot_xsection
-            from datagenerator.util import plot_voxels_not_in_regular_layers
+            from synthoseis.datagenerator.util import plot_xsection
+            from synthoseis.datagenerator.util import plot_voxels_not_in_regular_layers
 
             plot_xsection(
                 age[:],
@@ -294,9 +294,9 @@ class Geomodel:
         -------
         None
         """
-        from datagenerator.util import plot_voxels_not_in_regular_layers
-        from datagenerator.util import find_line_with_most_voxels
-        from datagenerator.util import import_matplotlib
+        from synthoseis.datagenerator.util import plot_voxels_not_in_regular_layers
+        from synthoseis.datagenerator.util import find_line_with_most_voxels
+        from synthoseis.datagenerator.util import import_matplotlib
 
         plt = import_matplotlib()
 
